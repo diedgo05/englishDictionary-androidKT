@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.diego.demo.english.features.apidictionary.presentation.components.DefinitionCard
@@ -19,9 +20,8 @@ import com.diego.demo.english.features.apidictionary.viewmodels.WordDefinitionVi
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WordDefinitionScreen(
-    factory: WordDefinitionViewModelFactory
+    viewModel: WordDefinitionViewModel = hiltViewModel()  // Hilt lo inyecta solo
 ) {
-    val viewModel: WordDefinitionViewModel = viewModel(factory = factory)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     var searchText by remember { mutableStateOf("") }

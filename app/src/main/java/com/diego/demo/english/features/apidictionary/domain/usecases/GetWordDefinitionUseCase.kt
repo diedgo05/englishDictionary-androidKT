@@ -2,8 +2,9 @@ package com.diego.demo.english.features.apidictionary.domain.usecases
 
 import com.diego.demo.english.features.apidictionary.domain.entities.Word
 import com.diego.demo.english.features.apidictionary.domain.repositories.DictionaryRepository
+import javax.inject.Inject
 
-class GetWordDefinitionUseCase(
+class GetWordDefinitionUseCase @Inject constructor(
     private val repository: DictionaryRepository
 ) {
     suspend operator fun invoke(word: String): Result<List<Word>> {

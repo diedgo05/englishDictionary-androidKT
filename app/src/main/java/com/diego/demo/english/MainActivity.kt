@@ -8,7 +8,9 @@ import com.diego.demo.english.core.di.AppContainer
 import com.diego.demo.english.core.ui.theme.EnglishTheme
 import com.diego.demo.english.features.apidictionary.di.WordModule
 import com.diego.demo.english.features.apidictionary.presentation.screens.WordDefinitionScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var appContainer: AppContainer
 
@@ -20,7 +22,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent{
             EnglishTheme {
-                WordDefinitionScreen(wordModule.provideWordDefinitionViewModelFactory())
+                WordDefinitionScreen()
             }
         }
     }
